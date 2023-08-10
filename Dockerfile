@@ -10,16 +10,16 @@ EXPOSE 8080
 RUN apt-get update && apt-get install -y git
 
 #Copy Requirements.txt file into app directory
-COPY requirements.txt AAC_APP/requirements.txt
+COPY requirements.txt .
 
 #install all requirements in requirements.txt
-RUN pip install -r AAC_APP/requirements.txt
+RUN pip install -r requirements.txt
 
 #Copy all files in current directory into app directory
-COPY . /AAC_APP
+COPY . .
 
 #Change Working Directory to app directory
-WORKDIR /AAC_APP
+# WORKDIR /AAC_APP
 
 #Run the application on port 8080
 ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0"]
