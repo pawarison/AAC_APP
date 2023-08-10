@@ -2,9 +2,8 @@
 
 #Base Image to use
 FROM python:3.9-slim
+ 
 
-#Expose port 8080
-EXPOSE 8080
 
 #Optional - install git to fetch packages directly from github
 RUN apt-get update && apt-get install -y git
