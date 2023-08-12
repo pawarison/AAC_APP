@@ -1,15 +1,13 @@
 # app/Dockerfile
 
 #Base Image to use
-FROM python:3.9-slim
+FROM python:3.10
  
-
-
 #Optional - install git to fetch packages directly from github
 RUN apt-get update && apt-get install -y git
 
 #Copy Requirements.txt file into app directory
-COPY requirements.txt .
+COPY requirements.txt requirements.txt
 
 #install all requirements in requirements.txt
 RUN pip install -r requirements.txt
