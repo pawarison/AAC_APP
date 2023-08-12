@@ -17,7 +17,6 @@ st.set_page_config(
 from utility import *
 benchmark = read_parquet_gcs(path = 'gs://aac_bucket/benchmark_df.parquet', to_pandas=True)
 
-benchmark.set_index('Date',inplace=True)
 benchmark['NDX13WHLwma'] = benchmark['NDX13WHLwma'].replace('',np.nan).astype(float)
 benchmark['SPX13WHLwma'] = benchmark['SPX13WHLwma'].replace('',np.nan).astype(float)
 
@@ -37,6 +36,8 @@ benchmark['NDX26W_HL'] =  benchmark['NDX26W_HL'].rolling(5).mean().fillna(method
 benchmark['SPX26W_HL'] = (benchmark['SPX26WHI']/benchmark['SPX26WLO'])
 benchmark.replace([np.inf, -np.inf], 0, inplace=True)
 benchmark['SPX26W_HL'] = benchmark['SPX26W_HL'].rolling(5).mean().fillna(method='ffill')
+
+
 # ----------------------------------------------------------------  
 # ----- benchmark tracking Chart Plot -----
 def benchmark_fig(flag='', flag2='', start_date='', end_date=''):
