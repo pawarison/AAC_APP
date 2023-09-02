@@ -37,6 +37,6 @@ show_pages(
     [
         Page("app.py", "Home", "🏠"),
         Page("pages/page_1.py", "Market Tracking Indicator", "🗺 "),
-        Page("pages/page_2.py", "AMS Realtime Performance", "📈"),
+        # Page("pages/page_2.py", "AMS Realtime Performance", "📈"),
     ]
 )
